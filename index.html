@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--
+  PORTFOLIO WEBSITE: index.html
+  -----------------------------------------------------------
+  HTML is the STRUCTURE of the page (what content exists).
+  The look (colors, spacing, fonts) lives in style.css.
+  Anything between "<!--" and "-->" is a comment: the browser ignores it.
+  Search for "EDIT:" to find every spot you should customize.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Makes the page scale correctly on phones. Do not remove. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- EDIT: the title shows in the browser tab and in search results -->
+  <title>Yamen Almdawar | Cybersecurity Student</title>
+
+  <!-- EDIT: the short summary search engines may show under your title -->
+  <meta name="description" content="Portfolio of Yamen Almdawar, a cybersecurity student at the University of New Haven working toward a career as a Cybersecurity Analyst.">
+
+  <!-- Connects this page to your CSS file (must be in the same folder) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Lets keyboard and screen-reader users jump past the menu -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ==================== NAVIGATION ====================
+       <header> and <nav> tell browsers this is the site menu.
+       Each href="#something" scrolls to the section with id="something". -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main">
+      <a class="brand" href="#top">Yamen Almdawar</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#goals">Goals</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ==================== HERO ====================
+         The first thing visitors see: your name, role, and a one-line pitch. -->
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div>
+          <h1>Yamen Almdawar</h1>
+          <!-- EDIT: one clear sentence about who you are and where you're headed -->
+          <p class="lead">First-year cybersecurity student building the skills to become a Cybersecurity Analyst.</p>
+          <p>
+            <a class="button" href="#projects">See my work</a>
+            <a class="button button-outline" href="#contact">Get in touch</a>
+          </p>
+        </div>
+
+        <!-- A small "terminal" card as a nod to security work.
+             It's plain text styled by CSS: edit the lines freely. -->
+        <div class="terminal" aria-hidden="true">
+          <div class="terminal-bar"><span></span><span></span><span></span></div>
+          <pre><code>$ whoami
+yamen
+$ cat focus.txt
+cybersecurity, C programming,
+technical writing
+$ status
+learning, building, open to internships</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT ====================
+         Photo on one side, text on the other. -->
+    <section class="section" id="about">
+      <div class="container about-grid">
+
+        <!-- PHOTO SPACE
+             EDIT: put your photo in an "images" folder, then replace the
+             <div class="photo-placeholder"> line with:
+             <img class="photo" src="images/headshot.jpg" alt="Photo of Yamen Almdawar">
+             The alt text describes the image for people using screen readers. -->
+        <div class="photo-placeholder" role="img" aria-label="Photo placeholder">YA</div>
+
+        <div>
+          <h2>About me</h2>
+          <!-- EDIT: write 3-5 sentences in your own voice -->
+          <p>I'm a first-year cybersecurity student at the University of New Haven. I'm drawn to the analyst side of security: investigating what happened, spotting patterns, and explaining it clearly to the people who need to act on it.</p>
+          <p>Outside class, I work as a customer service host at Walmart, where I handle people's questions and problems calmly, which is a skill I expect to use in security work too.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PROJECTS ====================
+         Each <article> is one project card. Copy a whole card to add another. -->
+    <section class="section section-alt" id="projects">
+      <div class="container">
+        <h2>Projects and coursework</h2>
+        <p class="section-intro">What I built, what I learned, and what I'd improve.</p>
+
+        <div class="card-grid">
+
+          <!-- EDIT: replace each card's text with your real work -->
+          <article class="card">
+            <h3>Introduction to C Programming</h3>
+            <p><strong>Built:</strong> Short C programs written for weekly assignments.</p>
+            <p><strong>Learned:</strong> How programs use memory and handle input, which is the foundation for understanding how software gets attacked.</p>
+            <!-- EDIT: link to your code on GitHub once it's uploaded -->
+            <a href="https://github.com/your-username" target="_blank" rel="noopener">View code on GitHub</a>
+          </article>
+
+          <article class="card">
+            <h3>Intro to Computing: "The River"</h3>
+            <p><strong>Built:</strong> A solution to a river-crossing logic puzzle with several constraints.</p>
+            <p><strong>Learned:</strong> Breaking a problem into rules and checking every step against them, the same reasoning used to analyze systems.</p>
+          </article>
+
+          <article class="card">
+            <h3>Technical Writing in Computing</h3>
+            <p><strong>Built:</strong> Professional memos with standard headings.</p>
+            <p><strong>Learned:</strong> Writing for a specific reader, a key skill when reporting security findings.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SKILLS ====================
+         Three groups. Each <li> is one skill. -->
+    <section class="section" id="skills">
+      <div class="container">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div>
+            <h3>Technical</h3>
+            <ul>
+              <li>C programming (beginner)</li>
+              <li>Computing fundamentals</li>
+              <li>HTML and CSS (this site)</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Professional</h3>
+            <ul>
+              <li>Technical writing</li>
+              <li>Customer service</li>
+              <li>Clear communication under pressure</li>
+            </ul>
+          </div>
+          <div>
+            <h3>AI literacy</h3>
+            <ul>
+              <li>Prompting AI tools to plan and draft</li>
+              <li>Reviewing and editing AI output</li>
+              <li>Built this site in my AI course</li>
+            </ul>
+          </div>
+        </div>
+        <!-- EDIT: only list things you are currently learning for real -->
+        <p><strong>Currently learning:</strong> networking basics, the Linux command line, security fundamentals.</p>
+      </div>
+    </section>
+
+    <!-- ==================== CAREER GOALS ==================== -->
+    <section class="section section-alt" id="goals">
+      <div class="container narrow">
+        <h2>Career goals</h2>
+        <!-- EDIT: describe your goal and the steps you plan to take -->
+        <p>I'm aiming for a career as a Cybersecurity Analyst. My plan is to build strong fundamentals in class, practice hands-on through home labs and student security events, and pursue internships along the way.</p>
+        <p>I'm most interested in threat detection and incident response.</p>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT ====================
+         GitHub Pages can't process forms by itself, so this section uses
+         simple links. A "mailto:" link opens the visitor's email app.
+         Optional upgrade: a free form service such as Formspree can add a
+         real contact form later. -->
+    <section class="section" id="contact">
+      <div class="container narrow">
+        <h2>Contact</h2>
+        <p>I'm open to internship opportunities, mentorship, and student networking.</p>
+        <ul class="contact-list">
+          <!-- EDIT: replace with your real email, LinkedIn, and GitHub -->
+          <li><a href="mailto:your.email@example.com">your.email@example.com</a></li>
+          <li><a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Yamen Almdawar. Built with HTML and CSS.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

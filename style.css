@@ -1,0 +1,186 @@
+/* ==========================================================
+   PORTFOLIO STYLESHEET: style.css
+   CSS controls how the HTML LOOKS: colors, fonts, spacing, layout.
+   Pattern: selector { property: value; }
+   Example: "h1 { color: red; }" makes every <h1> red.
+   ========================================================== */
+
+
+/* ---------- 1. DESIGN TOKENS ----------
+   Variables for colors and sizes. Change a value here and it updates
+   everywhere. To re-theme the whole site, edit only these. */
+:root {
+  --ink: #14213d;          /* main text and dark backgrounds (deep navy) */
+  --ink-soft: #4a5568;     /* secondary text */
+  --paper: #ffffff;        /* page background */
+  --paper-alt: #eef2f6;    /* alternating section background */
+  --accent: #0b6e7a;       /* links and buttons (teal) */
+  --accent-dark: #084f58;  /* hover color */
+  --line: #d5dce5;         /* thin borders */
+
+  /* System fonts load instantly (no downloads), which keeps the site fast. */
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-head: Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+
+/* ---------- 2. RESET AND BASE ---------- */
+
+/* Makes width calculations predictable: padding stays inside the box. */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Smooth scrolling when clicking nav links. Offset keeps headings clear of
+   the sticky header. */
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;    /* ~17px: comfortable reading size */
+  line-height: 1.65;       /* space between lines */
+  color: var(--ink);
+  background: var(--paper);
+}
+
+/* Headings use the serif font for personality. */
+h1, h2, h3 { font-family: var(--font-head); line-height: 1.2; margin: 0 0 0.75rem; }
+h1 { font-size: clamp(2.4rem, 6vw, 3.75rem); }   /* clamp = min, preferred, max */
+h2 { font-size: clamp(1.75rem, 4vw, 2.25rem); }
+h3 { font-size: 1.25rem; }
+
+p { margin: 0 0 1rem; max-width: 65ch; }          /* ~65 characters per line */
+ul { padding-left: 1.2rem; margin: 0 0 1rem; }
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-dark); }
+
+/* Visible outline for keyboard users. Important for accessibility. */
+a:focus-visible, .button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+
+/* ---------- 3. LAYOUT HELPERS ---------- */
+
+/* Centers content and limits width so lines don't stretch on big screens. */
+.container { width: min(100% - 2.5rem, 68rem); margin-inline: auto; }
+.narrow { width: min(100% - 2.5rem, 44rem); }
+
+.section { padding: 4.5rem 0; }
+.section-alt { background: var(--paper-alt); }
+.section-intro { color: var(--ink-soft); }
+
+/* Hidden until a keyboard user tabs to it. */
+.skip-link {
+  position: absolute; left: -999px; top: 0;
+  background: var(--ink); color: #fff; padding: 0.5rem 1rem; z-index: 20;
+}
+.skip-link:focus { left: 0; }
+
+
+/* ---------- 4. NAVIGATION ---------- */
+
+/* "sticky" keeps the menu at the top while scrolling. */
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+/* Flexbox lays the brand and links out in a row. */
+.nav {
+  display: flex; flex-wrap: wrap;
+  align-items: center; justify-content: space-between;
+  gap: 0.25rem 1.5rem; padding: 0.75rem 0;
+}
+.brand { font-family: var(--font-head); font-weight: bold; font-size: 1.2rem; color: var(--ink); text-decoration: none; }
+
+.nav-links { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; list-style: none; margin: 0; padding: 0; }
+.nav-links a { color: var(--ink-soft); text-decoration: none; font-size: 0.95rem; }
+.nav-links a:hover { color: var(--accent); }
+
+
+/* ---------- 5. HERO ---------- */
+
+/* The dark navy block at the top. */
+.hero { background: var(--ink); color: #fff; padding: 5rem 0; }
+
+/* Grid: two columns on wide screens (stacked on phones, see section 10). */
+.hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: center; }
+.hero .lead { font-size: 1.25rem; color: #d7e0ee; }
+
+/* Buttons */
+.button {
+  display: inline-block; padding: 0.7rem 1.4rem; margin: 0 0.5rem 0.5rem 0;
+  background: var(--accent); color: #fff; text-decoration: none;
+  border: 2px solid var(--accent); border-radius: 6px; font-weight: 600;
+}
+.button:hover { background: var(--accent-dark); border-color: var(--accent-dark); color: #fff; }
+.button-outline { background: transparent; border-color: #fff; }
+.button-outline:hover { background: #fff; color: var(--ink); border-color: #fff; }
+
+/* Terminal card */
+.terminal { background: #0b1324; border: 1px solid #2c3a57; border-radius: 8px; overflow: hidden; }
+.terminal-bar { display: flex; gap: 6px; padding: 10px 12px; background: #1b2740; }
+.terminal-bar span { width: 10px; height: 10px; border-radius: 50%; background: #5b6b8c; }
+.terminal pre { margin: 0; padding: 1rem 1.25rem; overflow-x: auto; }
+.terminal code { font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.7; color: #9fe3d0; }
+
+
+/* ---------- 6. ABOUT AND PHOTO ---------- */
+
+.about-grid { display: grid; grid-template-columns: 14rem 1fr; gap: 3rem; align-items: start; }
+
+/* Placeholder box. Delete it after adding your real photo. */
+.photo-placeholder {
+  aspect-ratio: 1 / 1; display: grid; place-items: center;
+  background: var(--paper-alt); border: 2px dashed var(--line); border-radius: 50%;
+  font-family: var(--font-head); font-size: 3rem; color: var(--ink-soft);
+}
+
+/* Real photo: same round shape. object-fit crops without stretching. */
+.photo { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 50%; }
+
+
+/* ---------- 7. PROJECT CARDS ---------- */
+
+.section h2 + .section-intro { margin-top: -0.25rem; }
+
+/* auto-fit makes as many columns as fit, each at least 16rem wide.
+   This is what makes the grid responsive without extra code. */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+
+.card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 1.5rem; }
+.card p { font-size: 0.98rem; }
+
+
+/* ---------- 8. SKILLS ---------- */
+
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 2rem; margin: 1.5rem 0; }
+
+
+/* ---------- 9. CONTACT AND FOOTER ---------- */
+
+.contact-list { list-style: none; padding: 0; font-size: 1.1rem; }
+.contact-list li { margin-bottom: 0.5rem; }
+
+.site-footer { background: var(--ink); color: #b9c4d8; padding: 1.5rem 0; font-size: 0.9rem; }
+.site-footer p { margin: 0; }
+
+
+/* ---------- 10. RESPONSIVE RULES ----------
+   A media query applies styles only when the screen matches a condition.
+   Below 760px wide (phones, small tablets), stack columns vertically. */
+@media (max-width: 760px) {
+  .hero { padding: 3rem 0; }
+  .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .photo-placeholder, .photo { max-width: 11rem; }
+  .section { padding: 3rem 0; }
+}
+
+/* Respect visitors who turn off animations in their device settings. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
